@@ -31,4 +31,14 @@ class catalogModel{
     $_SESSION['message_type'] = 'success';
   }
 
+  public function getMenus() {
+    $query = "SELECT name FROM menu";
+    $res = $this->db->prepare($query);
+    $res->execute();
+
+    $this->catalog[] = $res->fetch();
+
+    return $this->catalog;
+  }
+
 }
