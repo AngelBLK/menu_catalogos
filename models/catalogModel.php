@@ -23,7 +23,7 @@ class catalogModel{
   }
 
   public function addCatalog($name, $menu_parent, $description){
-    $query = "INSERT INTO menu (name, menu_parent, description) VALUES ($name, $menu_parent, $description)";
+    $query = "INSERT INTO menu (name, menu_parent, description) VALUES ('$name', '$menu_parent', '$description')";
 
     $res = $this->db->prepare($query);
     $res->execute();
@@ -38,7 +38,9 @@ class catalogModel{
     $res = $this->db->prepare($query);
     $res->execute();
 
-    $this->catalog[] = $res->fetch();
+    foreach($res as $row) {
+      $this->catalog[] = $row;
+    }
 
     return $this->catalog;
   }

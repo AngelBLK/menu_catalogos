@@ -8,4 +8,6 @@
   <title>Evaluation</title>
 </head>
 <body>
+
+<?php include("navBar.php")?>
   

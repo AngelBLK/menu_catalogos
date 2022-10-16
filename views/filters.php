@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-12">
+  <div class="col-12 my-4">
     <div class="form-horizontal validate">
       <div class="card">
         <div class="card-header bg-dark">

@@ -19,6 +19,9 @@
             <td> <?php echo $row['name']?></td>
             <td> <?php echo $row['menu_parent']?></td>
             <td> <?php echo $row['description']?></td>
+            <td>
+              <a href=""></a>
+            </td>
           </tr>
       <?php } ?>
     </tbody>

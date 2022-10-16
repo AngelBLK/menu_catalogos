@@ -1,4 +1,7 @@
-<?php include("controllers/modalController.php"); ?>
+<?php 
+  include("controllers/modalController.php"); 
+  include("controllers/menusSelectController.php");
+?>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -7,13 +10,13 @@
         <h5 class="modal-title" id="exampleModalLabel">Add New Menu</h5>
       </div>
       <!-- Formulario para Guardar -->
-      <form action="modalController.php" method="POST">
+      <form action="index.php" method="POST">
         <div class="modal-body">
           <div class="form-group my-2">
             <input type="text" name="name" class="form-control" placeholder="Menu name" autofocus>
           </div>
-          <select class="form-group form-select my-2" aria-label="Default select example" name="menu_parent">
-            <option selected>Select a menu parent</option>
+          <select class="form-group form-select my-2" aria-label="Default select example" name="menu_parent" aria-placeholder="Select One">
+            <option >Select a menu parent</option>
             <?php 
               foreach($menuList as $row) { ?>
                 <option value="<?php $row['name']?>"><?php echo $row['name']?></option>

@@ -3,8 +3,9 @@
 <div class="container">
   <div class="container-fluid">
     <?php 
+    include("controllers/modalController.php");
       include("views/filters.php");
-      include("views/evaluation.php")
+      include("views/evaluation.php");
     ?>
   </div>
 </div>
