@@ -1,4 +1,7 @@
-<?php  include("controllers/catalogControllers.php"); ?>
+<?php  
+  require_once "controllers/catalogControllers.php"; 
+  require_once "controllers/deleteController.php";
+?>
 
 <div class="card-body">
   <table class="table table-bordered">
@@ -20,7 +23,13 @@
             <td> <?php echo $row['menu_parent']?></td>
             <td> <?php echo $row['description']?></td>
             <td>
-              <a href=""></a>
+              <a href="edit.php?id=<?php echo $row['id']?>" class="btn btn-secondary">
+                <i class="fas fa-marker"></i>
+              </a>
+
+              <a href="index.php?id=<?php echo $row['id']?>" class="btn btn-danger">
+                <i class="far fa-trash-alt"></i>
+              </a>
             </td>
           </tr>
       <?php } ?>

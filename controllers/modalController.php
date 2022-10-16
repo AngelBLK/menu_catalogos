@@ -10,11 +10,7 @@ if(isset($_POST['save_menu'])) {
   $menu_parent = $_POST['menu_parent'];
   $description = $_POST['description'];
   
-  echo "<script> console.log('". $menu_parent ."');</script>";
-  // $newCatalog =$catalog->addCatalog($name, $menu_parent, $description);
-
-  $_SESSION['message'] = 'Menu save succesfully';
-  $_SESSION['message_type'] = 'success';
+  $newCatalog =$catalog->addCatalog($name, $menu_parent, $description);
 
   header ("location: index.php");
 }

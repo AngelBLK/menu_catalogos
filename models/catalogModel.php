@@ -1,6 +1,6 @@
 <?php
 
-include("db/db.php");
+require_once "db/db.php";
 
 class catalogModel{
   private $db;
@@ -28,13 +28,10 @@ class catalogModel{
     $res = $this->db->prepare($query);
     $res->execute();
 
-
-    $_SESSION['message'] = 'Menu save Succesfully';
-    $_SESSION['message_type'] = 'success';
   }
 
   public function getMenus() {
-    $query = "SELECT name FROM menu";
+    $query = "SELECT name FROM menu WHERE menu_parent IS NULL";
     $res = $this->db->prepare($query);
     $res->execute();
 
@@ -43,6 +40,31 @@ class catalogModel{
     }
 
     return $this->catalog;
+  }
+
+  public function deleteElement($id) {
+    $query = "DELETE FROM menu WHERE id = $id";
+    $res = $this->db->prepare($query);
+    $res->execute();
+  }
+
+  public function selectEditMenu($id) {
+    $query = "SELECT * FROM menu WHERE id = $id";
+    $res = $this->db->prepare($query);
+    $res->execute();
+
+    $row = $res->fetch();
+
+    return $row;
+    
+  }
+
+  public function editMenu($id, $new_title, $new_menu_parent, $new_description) {
+    $query = "UPDATE menu SET name = '$new_title', menu_parent = 'new_menu_parent = '$new_menu_parent', description = '$new_description' WHERE id = $id";
+
+    $res = $this->db->prepare($query);
+    $res->execute();
+
   }
 
 }

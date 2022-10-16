@@ -1,6 +1,6 @@
 <?php 
   include("controllers/modalController.php"); 
-  include("controllers/menusSelectController.php");
+  require_once "controllers/menusSelectController.php";
 ?>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -15,7 +15,7 @@
           <div class="form-group my-2">
             <input type="text" name="name" class="form-control" placeholder="Menu name" autofocus>
           </div>
-          <select class="form-group form-select my-2" aria-label="Default select example" name="menu_parent" aria-placeholder="Select One">
+          <select class="form-group form-select my-2" aria-label="Default select example" name="menu_parent[]" aria-placeholder="Select One">
             <option >Select a menu parent</option>
             <?php 
               foreach($menuList as $row) { ?>
