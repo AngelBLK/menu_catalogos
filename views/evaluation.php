@@ -1,7 +1,6 @@
 <?php 
-  include("controllers/catalogControllers.php");
   include("controllers/menusSelectController.php");
-  include("controllers/modalController.php");
+  
 ?>
 
       <?php if(isset($_SESSION['message'])){ ?>
@@ -26,69 +25,11 @@
             </button>
 
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add New Menu</h5>
-                  </div>
-                  <!-- Formulario para Guardar -->
-                  <form action="modalController.php" method="POST">
-                    <div class="modal-body">
-                      
-                      <div class="form-group my-2">
-                        <input type="text" name="name" class="form-control" placeholder="Menu name" autofocus>
-                      </div>
-                      <select class="form-group form-select my-2" aria-label="Default select example" name="menu_parent">
-                        <option selected>Select a menu parent</option>
-                        <?php 
-                          foreach($menuList as $row) { ?>
-                          <option value="<?php $row['name']?>"><?php echo $row['name']?></option>
-
-                        <?php } ?>
-                        
-                      </select>
-                      <div class="form-group my-2">
-                        <textarea name="description" rows="2" class="form-control" placeholder="Description"></textarea>
-                      </div>
-                    
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                      <button type="submit" class="btn btn-secondary" name="save_menu">Save</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
+            <?php include("modal.php");?>
           </div>
         </div>
       </div>
-      <div class="card-body">
-      <table class="table table-bordered">
-      <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Menu Parent</th>
-            <th>Description</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-        <?php 
-          foreach($catalogList as $row) { ?>
-            <tr>
-              <td> <?php echo $row['id']?></td>
-              <td> <?php echo $row['name']?></td>
-              <td> <?php echo $row['menu_parent']?></td>
-              <td> <?php echo $row['description']?></td>
-            </tr>
-        <?php } ?>
-        </tbody>
-      </table>
-        
-      </div>
+      <?php include("listTable.php");?>
     </div>
 
   </div>

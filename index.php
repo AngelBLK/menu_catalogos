@@ -2,7 +2,8 @@
 
 <div class="container">
   <div class="container-fluid">
-    <?php include("views/filters.php");
+    <?php 
+      include("views/filters.php");
       include("views/evaluation.php")
     ?>
   </div>
