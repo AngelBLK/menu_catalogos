@@ -13,4 +13,5 @@ if(isset($_POST['save_menu'])) {
   $newCatalog =$catalog->addCatalog($name, $menu_parent, $description);
 
   header ("location: index.php");
+  
 }

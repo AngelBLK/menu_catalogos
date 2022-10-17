@@ -8,4 +8,4 @@ CREATE TABLE menu (
   PRIMARY KEY(id) 
 );
 
-INSERT INTO menu (name, description) VALUES ('Catálogos', 'Lista de Catálogos');
+INSERT INTO menu (name, description) VALUES ('Catalogos', 'Lista de Catalogos');

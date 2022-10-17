@@ -10,4 +10,5 @@ if(isset($_GET['id'])) {
   $menu->deleteElement($id);
 
   header ("location: index.php");
+  die();
 }

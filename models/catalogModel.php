@@ -31,7 +31,7 @@ class catalogModel{
   }
 
   public function getMenus() {
-    $query = "SELECT name FROM menu WHERE menu_parent IS NULL";
+    $query = "SELECT name FROM menu WHERE menu_parent IS NULL OR menu_parent =''";
     $res = $this->db->prepare($query);
     $res->execute();
 
@@ -53,14 +53,18 @@ class catalogModel{
     $res = $this->db->prepare($query);
     $res->execute();
 
+    foreach($res as $row) {
+
+    }
+
     $row = $res->fetch();
 
     return $row;
     
   }
 
-  public function editMenu($id, $new_title, $new_menu_parent, $new_description) {
-    $query = "UPDATE menu SET name = '$new_title', menu_parent = 'new_menu_parent = '$new_menu_parent', description = '$new_description' WHERE id = $id";
+  public function editMenu($id, $new_name, $new_menu_parent, $new_description) {
+    $query = "UPDATE menu SET name = '$new_name', menu_parent = 'new_menu_parent = '$new_menu_parent', description = '$new_description' WHERE id = $id";
 
     $res = $this->db->prepare($query);
     $res->execute();

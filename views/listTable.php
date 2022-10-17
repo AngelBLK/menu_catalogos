@@ -23,16 +23,17 @@
             <td> <?php echo $row['menu_parent']?></td>
             <td> <?php echo $row['description']?></td>
             <td>
-              <a href="edit.php?id=<?php echo $row['id']?>" class="btn btn-secondary">
+              <a href="edit.php?id=<?php echo $row['id']?>" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editModal">
                 <i class="fas fa-marker"></i>
               </a>
-
+              
               <a href="index.php?id=<?php echo $row['id']?>" class="btn btn-danger">
                 <i class="far fa-trash-alt"></i>
               </a>
             </td>
           </tr>
       <?php } ?>
+      <?php include("edit.php");?>
     </tbody>
   </table> 
 </div>

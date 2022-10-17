@@ -1,12 +1,5 @@
 <?php ?>
 
-      <?php if(isset($_SESSION['message'])){ ?>
-        <div class="alert alert-<?= $_SESSION['message_type']; ?> alert-dismissible fade show" role="alert">
-          <?=$_SESSION['message']?> <strong>Successfully </strong>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      <?php session_unset();}?>
-
 <div class="row my-4">
   <div class="col-12">
     <div class="card">

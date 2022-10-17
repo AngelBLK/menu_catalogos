@@ -1,30 +1,29 @@
-<?php 
-  require_once "controllers/modalController.php"; 
-  require_once "controllers/menusSelectController.php";
+<?php
+  require_once "controllers/editController.php";
 ?>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add New Menu</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edit Menu</h5>
       </div>
       <!-- Formulario para Guardar -->
-      <form action="index.php" method="POST">
+      <form action="index.php?id="<?php echo $_GET['id'];?> method="POST">
         <div class="modal-body">
           <div class="form-group my-2">
-            <input type="text" name="name" class="form-control" placeholder="Menu name" autofocus>
+            <input type="text" name="name" class="form-control" placeholder="Menu name" autofocus value="<?php echo $data['menu']?>">
           </div>
-          <select class="form-group form-select my-2" aria-label="Default select example" name="menu_parent" aria-placeholder="Select One">
+          <select class="form-group form-select my-2" aria-label="Default select example" name="menu_parent[]" aria-placeholder="Select One">
             <option >Select a menu parent</option>
             <?php 
               foreach($menuList as $row) { ?>
                 <option value="<?php $row['name']?>"><?php echo $row['name']?></option>
             <?php } ?>
-            <?php var_dump($menuList)?> 
+                        
           </select>
           <div class="form-group my-2">
-            <textarea name="description" rows="2" class="form-control" placeholder="Description"></textarea>
+            <textarea name="description" rows="2" class="form-control" placeholder="Description"><?php echo $description ?></textarea>
           </div>         
         </div>
         <div class="modal-footer">
